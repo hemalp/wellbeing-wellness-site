@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Not Found | WellBeing Psychotherapy</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script>
+  // The practice's old site lived entirely under /wb/ (e.g. /wb, /wb/about, /wb/team...).
+  // GitHub Pages has no server-side redirect config, so any request under /wb/ lands here
+  // (the 404 fallback) — send those straight to the new homepage. Anything else genuinely
+  // wasn't found, so show a normal 404 message instead of redirecting.
+  if (/^\/wb(\/|$)/i.test(window.location.pathname)) {
+    window.location.replace('/');
+  }
+</script>
+<meta http-equiv="refresh" content="0; url=/" id="wb-refresh">
+<style>
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 40px 20px; }
+  .notfound-inner { max-width: 480px; }
+  .notfound-inner h1 { font-size: 34px; margin-bottom: 16px; }
+  .notfound-inner p { font-size: 18px; line-height: 1.7; color: var(--text-soft); margin: 0 0 28px; }
+</style>
+</head>
+<body data-page="404">
+
+<div class="notfound-inner">
+  <h1 class="h2">Page Not Found</h1>
+  <p>The page you're looking for may have moved. If you're not redirected automatically, head back to the homepage below.</p>
+  <a href="/" class="btn">Go to Homepage</a>
+</div>
+
+<script>
+  // Only genuinely-missing pages should show the message above — redirect-bound /wb/*
+  // requests skip straight past it via the script/meta-refresh, but remove the
+  // meta-refresh for non-/wb paths so real 404s don't also bounce to "/".
+  if (!/^\/wb(\/|$)/i.test(window.location.pathname)) {
+    var tag = document.getElementById('wb-refresh');
+    if (tag) tag.remove();
+  }
+</script>
+</body>
+</html>
